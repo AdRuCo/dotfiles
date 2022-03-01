@@ -1,0 +1,11 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) dunstify -a statusbar "This Month" "$(cal --color=always | sed "s/..7m/<b><span color=\"#b16286\">/;s/..27m/<\/span><\/b>/")" && dunstify -a statusbar "Appointments" "$(calcurse -d3)" ;;
+	2) setsid -f "$TERMINAL" -e calcurse ;;
+	3) dunstify -a statusbar "📅 Time/date module" "\- Left click to show upcoming appointments for the next three days via \`calcurse -d3\` and show the month via \`cal\`
+- Middle click opens calcurse if installed" ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+date "+ %d %b %Y [%a]  %H:%M"

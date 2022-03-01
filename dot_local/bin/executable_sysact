@@ -1,0 +1,17 @@
+#!/bin/sh
+# A dmenu wrapper script for system functions.
+case "$(readlink -f /sbin/init)" in
+	*systemd*) ctl='systemctl' ;;
+	*) ctl='loginctl' ;;
+esac
+
+case "$(printf "lock\nleave dwm\nrenew dwm\nsleep\nreboot\nshutdown\ndisplay off" | dmenu -i -l 7 -p 'Action: ')" in
+	'lock') slock ;;
+	'leave dwm') kill -TERM "$(pgrep -u "$USER" "\bdwm$")" ;;
+	'renew dwm') kill -HUP "$(pgrep -u "$USER" "\bdwm$")" ;;
+	'sleep') slock $ctl suspend -i;;
+	'reboot') $ctl reboot ;;
+	'shutdown') $ctl poweroff ;;
+	'display off') xset dpms force off ;;
+	*) exit 1 ;;
+esac

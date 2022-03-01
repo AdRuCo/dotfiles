@@ -1,0 +1,2 @@
+#!/bin/sh
+paplay --volume=55000 --property=media.role=notification $HOME/.local/share/pop.wav

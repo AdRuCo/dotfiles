@@ -1,9 +1,9 @@
 *.alpha: 0.98
 st.font: monospace:size=12
-! *.antialias:	1
-! *.autohint:	0
-! *.dpi:	        96
-! *.hinting:	1
-! *.hintstyle:	hintslight
-! *.lcdfilter:	lcddefault
-! *.rgba:	none
+*.antialias:	1
+*.autohint:	0
+*.dpi:	        96
+*.hinting:	1
+*.hintstyle:	hintslight
+*.lcdfilter:	lcddefault
+*.rgba:	none
